@@ -1,0 +1,160 @@
+/* ─── Mona Sans Local Fonts ─── */
+@font-face {
+  font-family: "Mona Sans";
+  src: url("/fonts/MonaSans-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mona Sans";
+  src: url("/fonts/MonaSans-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mona Sans";
+  src: url("/fonts/MonaSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mona Sans";
+  src: url("/fonts/MonaSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mona Sans";
+  src: url("/fonts/MonaSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mona Sans";
+  src: url("/fonts/MonaSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mona Sans";
+  src: url("/fonts/MonaSans-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mona Sans";
+  src: url("/fonts/MonaSans-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import "tailwindcss";
+
+/* ─── Design Tokens ─── */
+:root {
+  --color-bg: #0a0a0f;
+  --color-surface: #12121a;
+  --color-surface-2: #0d0d14;
+  --color-primary: #6C63FF;
+  --color-secondary: #00D4FF;
+  --color-text: #ffffff;
+  --color-text-muted: rgba(255, 255, 255, 0.6);
+  --font-sans: "Mona Sans", var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-mono), "Courier New", monospace;
+}
+
+/* ─── Base ─── */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #6C63FF #12121a;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #12121a;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #6C63FF, #00D4FF);
+  border-radius: 3px;
+}
+
+body {
+  font-family: "Mona Sans", var(--font-inter), system-ui, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+
+/* ─── Custom Animations ─── */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.7s ease forwards;
+  opacity: 0;
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+.animation-delay-600 { animation-delay: 600ms; }
+.animation-delay-800 { animation-delay: 800ms; }
+.delay-1000 { animation-delay: 1000ms; }
+
+/* ─── Selection ─── */
+::selection {
+  background: rgba(108, 99, 255, 0.3);
+  color: white;
+}
+
+/* ─── Utility ─── */
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #6C63FF, #00D4FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

@@ -1,0 +1,42 @@
+﻿--- PAGE 1 ---
+PHß║áM TUß║ñN MINH
+Full-stack Developer
+19-05-2003 | 0773-772-174 | phamtuanminh19052003@gmail.com | linkedin.com/in/ptm1905
+EDUCATION
+Ho Chi Minh City University of Technology and Education (HCMUTE) 2021 - 2026
+Major: Information Technology / Information Systems
+ΓùÅ GPA: 7.46 / 10.00 (2.95 / 4.00)
+SKILLS
+ΓùÅ Programming Languages: JavaScript (ES6+), TypeScript, Python, C, C++
+ΓùÅ Frontend: React (Next.js), Vue.js (Nuxt.js), Web Components, HTML5, CSS3, Tailwind CSS
+ΓùÅ State Management: Pinia (concepts transferable to Redux / Zustand)
+ΓùÅ Backend & Database: Node.js, Django, MongoDB, SQL Server, Oracle, Prisma ORM
+ΓùÅ Testing : Selenium, Playwright ( foundational knowledge )
+ΓùÅ AI-Assisted Development: Regularly uses AI coding agents (GitHub Copilot, Claude, Cursor) for context preparation,
+implementation and code review
+ΓùÅ Tools: Git/GitHub, Figma, Principle
+ΓùÅ Other exposure: Spark, Hadoop, Selenium
+WORK EXPERIENCE
+Frontend Developer (Full-time Intern) 07.2025 - 12.2025
+Website Petpet - Maysoft Company
+ΓùÅ Developed the Petpet website for both Desktop and Mobile interfaces using a Mobile-First approach.
+ΓùÅ Built a landing page allowing customers to browse products and stay updated with the latest company news.
+ΓùÅ Built the application using Nuxt.js as the main framework and Pinia for state management.
+ΓùÅ Integrated REST APIs and performed data operations with MongoDB.
+ΓùÅ Implemented SSR/CSR rendering strategies and SEO optimization to improve website performance, user experience, and
+search engine visibility
+ΓùÅ Managed source code and workflow using GitHub.
+Website: https://petpet.vn/
+GRADUATION THESIS
+AI Virtual Fitting Room - TMF Fashion 02.2026 - 07.2026
+Solo Developer - Fashion e-commerce platform with AI-powered 3D virtual try-on
+ΓùÅ Independently designed and developed a full-stack fashion e-commerce website, covering product browsing, news
+updates, online ordering and payment.
+ΓùÅ Built the frontend with Next.js (React) and the backend with Node.js, using MongoDB as the database.
+ΓùÅ Researched and integrated advanced AI models (TailorNet and SMPL) to reconstruct 3D human body models and
+simulate garment fitting for a 3D virtual fitting room feature.
+ΓùÅ Managed source code and development workflow using GitHub.
+Repository: https://github.com/TuanMinh1905/Fittingroom-Official
+ADDITIONAL INFORMATION
+ΓùÅ English: Proficient in reading and writing.
+ΓùÅ Actively uses AI coding agents in daily development workflow, from context preparation to implementation and review.
