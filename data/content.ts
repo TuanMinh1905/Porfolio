@@ -210,7 +210,7 @@ export const content = {
           tech: ["Next.js", "HonoJS", "MongoDB", "Zustand", "Three.js", "TailorNet", "SMPL", "Python"],
           links: {
             github: "https://github.com/TuanMinh1905/Fittingroom-Official",
-            demo: "", // YouTube link to be added
+            demo: "https://drive.google.com/file/d/1i4diSXaiE48r_edPh_6n0nJzjKH5ry0L/view",
           },
         },
       ],
@@ -267,7 +267,7 @@ export const content = {
           tech: ["Next.js", "HonoJS", "MongoDB", "Zustand", "Three.js", "TailorNet", "SMPL", "Python"],
           links: {
             github: "https://github.com/TuanMinh1905/Fittingroom-Official",
-            demo: "",
+            demo: "https://drive.google.com/file/d/1i4diSXaiE48r_edPh_6n0nJzjKH5ry0L/view",
           },
         },
       ],
