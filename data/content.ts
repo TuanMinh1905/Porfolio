@@ -169,6 +169,7 @@ export const content = {
           subtitle: "E-commerce Platform – Maysoft Company",
           period: "07/2025 – 12/2025",
           badges: ["Real-world Project", "Internship"],
+          image: "/petpet.jpg",
           description:
             "The official e-commerce website for Petpet, a pet products brand. I was the sole frontend developer responsible for building the entire client-facing interface from the ground up.",
           highlights: [
@@ -181,7 +182,6 @@ export const content = {
           tech: ["Nuxt.js", "Vue.js", "Pinia", "MongoDB", "REST API", "Tailwind CSS", "SSR/CSR", "SEO"],
           links: {
             live: "https://petpet.vn/",
-            github: "https://github.com/TuanMinh1905/Petpet_TuanMinh/tree/minhDev",
           },
         },
         {
@@ -224,6 +224,7 @@ export const content = {
           subtitle: "Nền tảng thương mại điện tử – Công ty Maysoft",
           period: "07/2025 – 12/2025",
           badges: ["Dự án thực tế", "Thực tập"],
+          image: "/petpet.jpg",
           description:
             "Website thương mại điện tử chính thức của Petpet, thương hiệu sản phẩm thú cưng. Tôi là lập trình viên frontend duy nhất chịu trách nhiệm xây dựng toàn bộ giao diện phía client từ đầu.",
           highlights: [
@@ -236,7 +237,6 @@ export const content = {
           tech: ["Nuxt.js", "Vue.js", "Pinia", "MongoDB", "REST API", "Tailwind CSS", "SSR/CSR", "SEO"],
           links: {
             live: "https://petpet.vn/",
-            github: "https://github.com/TuanMinh1905/Petpet_TuanMinh/tree/minhDev",
           },
         },
         {

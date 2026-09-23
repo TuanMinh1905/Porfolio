@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguageStore } from "@/store/languageStore";
 import { content } from "@/data/content";
 import SectionWrapper from "./SectionWrapper";
@@ -51,102 +52,121 @@ export default function Projects() {
         {t.items.map((project, idx) => (
           <div
             key={project.id}
-            className={`group relative bg-gradient-to-br ${projectGradients[idx % 2]} border rounded-3xl p-8 md:p-10 hover:scale-[1.01] transition-all duration-500 hover:shadow-2xl ${glowColors[idx % 2]}`}
+            className={`group relative overflow-hidden bg-gradient-to-br ${projectGradients[idx % 2]} border rounded-3xl p-8 md:p-10 hover:scale-[1.01] transition-all duration-500 hover:shadow-2xl ${glowColors[idx % 2]}`}
           >
-            {/* Header */}
-            <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
-              <div>
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {project.badges.map((badge) => (
+            {/* Background image with blur + dark overlay (only when image field exists) */}
+            {"image" in project && project.image && (
+              <>
+                <div className="absolute inset-0 z-0">
+                  <Image
+                    src={project.image as string}
+                    alt={project.title}
+                    fill
+                    className="object-cover object-top blur-sm scale-105"
+                    sizes="(max-width: 768px) 100vw, 800px"
+                  />
+                </div>
+                <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#0a0a0f]/75 via-[#12121a]/65 to-[#0d0d14]/70" />
+              </>
+            )}
+
+            {/* Card content sits above background */}
+            <div className="relative z-10">
+              {/* Header */}
+              <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
+                <div>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {project.badges.map((badge) => (
+                      <span
+                        key={badge}
+                        className="px-3 py-1 rounded-full text-xs font-bold bg-[#6C63FF]/20 text-[#a99dff] border border-[#6C63FF]/30"
+                      >
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-black text-white">{project.title}</h3>
+                  <p className="text-white/50 text-sm mt-1">{project.subtitle}</p>
+                </div>
+                <div className="text-right">
+                  <span className="font-mono text-xs text-white/30 bg-white/5 px-3 py-1 rounded-full border border-white/10">
+                    {project.period}
+                  </span>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="text-white/70 leading-relaxed mb-6">{project.description}</p>
+
+              {/* Highlights */}
+              <div className="mb-8">
+                <h4 className="text-white/40 text-xs font-mono uppercase tracking-widest mb-4">
+                  Key Highlights
+                </h4>
+                <ul className="space-y-3">
+                  {project.highlights.map((h, i) => (
+                    <li key={i} className="flex gap-3 items-start">
+                      <span className="text-[#6C63FF] mt-0.5 flex-shrink-0 text-sm">–</span>
+                      <span className="text-white/70 text-sm leading-relaxed">{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Tech stack */}
+              <div className="mb-8">
+                <h4 className="text-white/40 text-xs font-mono uppercase tracking-widest mb-3">Tech Stack</h4>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((tech) => (
                     <span
-                      key={badge}
-                      className="px-3 py-1 rounded-full text-xs font-bold bg-[#6C63FF]/20 text-[#a99dff] border border-[#6C63FF]/30"
+                      key={tech}
+                      className={`px-3 py-1 rounded-full text-xs font-medium border ${getTechClass(tech)}`}
                     >
-                      {badge}
+                      {tech}
                     </span>
                   ))}
                 </div>
-                <h3 className="text-2xl md:text-3xl font-black text-white">{project.title}</h3>
-                <p className="text-white/50 text-sm mt-1">{project.subtitle}</p>
               </div>
-              <div className="text-right">
-                <span className="font-mono text-xs text-white/30 bg-white/5 px-3 py-1 rounded-full border border-white/10">
-                  {project.period}
-                </span>
-              </div>
-            </div>
 
-            {/* Description */}
-            <p className="text-white/70 leading-relaxed mb-6">{project.description}</p>
-
-            {/* Highlights */}
-            <div className="mb-8">
-              <h4 className="text-white/40 text-xs font-mono uppercase tracking-widest mb-4">
-                Key Highlights
-              </h4>
-              <ul className="space-y-3">
-                {project.highlights.map((h, i) => (
-                  <li key={i} className="flex gap-3 items-start">
-                    <span className="text-[#6C63FF] mt-0.5 flex-shrink-0 text-sm">–</span>
-                    <span className="text-white/70 text-sm leading-relaxed">{h}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Tech stack */}
-            <div className="mb-8">
-              <h4 className="text-white/40 text-xs font-mono uppercase tracking-widest mb-3">Tech Stack</h4>
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className={`px-3 py-1 rounded-full text-xs font-medium border ${getTechClass(tech)}`}
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Links */}
-            <div className="flex flex-wrap gap-3">
-              {project.links.live && (
-                <a
-                  href={project.links.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#6C63FF] to-[#00D4FF] text-white text-sm font-semibold hover:scale-105 hover:shadow-lg hover:shadow-[#6C63FF]/30 transition-all duration-300"
-                >
-                  {t.view_live}
-                </a>
-              )}
-              {project.links.github && (
-                <a
-                  href={project.links.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-5 py-2.5 rounded-full border border-white/20 text-white text-sm font-semibold hover:border-[#6C63FF]/50 hover:bg-[#6C63FF]/10 transition-all duration-300"
-                >
-                  {t.view_github}
-                </a>
-              )}
-              {project.links.demo !== undefined && (
-                project.links.demo ? (
+              {/* Links */}
+              <div className="flex flex-wrap gap-3">
+                {project.links.live && (
                   <a
-                    href={project.links.demo}
+                    href={project.links.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-5 py-2.5 rounded-full border border-[#00D4FF]/30 text-[#00D4FF] text-sm font-semibold hover:bg-[#00D4FF]/10 hover:scale-105 transition-all duration-300"
+                    className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#6C63FF] to-[#00D4FF] text-white text-sm font-semibold hover:scale-105 hover:shadow-lg hover:shadow-[#6C63FF]/30 transition-all duration-300"
                   >
-                    {t.view_demo}
+                    {t.view_live}
                   </a>
-                ) : (
-                  <span className="px-5 py-2.5 rounded-full border border-white/10 text-white/30 text-sm font-semibold cursor-not-allowed">
-                    {t.view_demo} (coming soon)
-                  </span>
-                )
-              )}
+                )}
+                {project.links.github && (
+                  <a
+                    href={project.links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-5 py-2.5 rounded-full border border-white/20 text-white text-sm font-semibold hover:border-[#6C63FF]/50 hover:bg-[#6C63FF]/10 transition-all duration-300"
+                  >
+                    {t.view_github}
+                  </a>
+                )}
+                {project.links.demo !== undefined && (
+                  project.links.demo ? (
+                    <a
+                      href={project.links.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2.5 rounded-full border border-[#00D4FF]/30 text-[#00D4FF] text-sm font-semibold hover:bg-[#00D4FF]/10 hover:scale-105 transition-all duration-300"
+                    >
+                      {t.view_demo}
+                    </a>
+                  ) : (
+                    <span className="px-5 py-2.5 rounded-full border border-white/10 text-white/30 text-sm font-semibold cursor-not-allowed">
+                      {t.view_demo} (coming soon)
+                    </span>
+                  )
+                )}
+              </div>
             </div>
           </div>
         ))}
