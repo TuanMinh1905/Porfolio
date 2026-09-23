@@ -16,7 +16,10 @@ const techColorMap: Record<string, string> = {
   "Next.js": "bg-white/10 text-white border-white/20",
   "React": "bg-cyan-500/10 text-cyan-300 border-cyan-500/20",
   "Node.js": "bg-green-500/10 text-green-300 border-green-500/20",
+  "HonoJS": "bg-orange-400/10 text-orange-300 border-orange-400/20",
   "MongoDB": "bg-green-600/10 text-green-400 border-green-600/20",
+  "Zustand": "bg-amber-500/10 text-amber-300 border-amber-500/20",
+  "Three.js": "bg-gray-400/10 text-gray-200 border-gray-400/20",
   "Nuxt.js": "bg-emerald-500/10 text-emerald-300 border-emerald-500/20",
   "Vue.js": "bg-emerald-400/10 text-emerald-300 border-emerald-400/20",
   "Pinia": "bg-yellow-500/10 text-yellow-300 border-yellow-500/20",
@@ -104,12 +107,15 @@ export default function Projects() {
                   Key Highlights
                 </h4>
                 <ul className="space-y-3">
-                  {project.highlights.map((h, i) => (
-                    <li key={i} className="flex gap-3 items-start">
-                      <span className="text-[#6C63FF] mt-0.5 flex-shrink-0 text-sm">–</span>
-                      <span className="text-white/70 text-sm leading-relaxed">{h}</span>
-                    </li>
-                  ))}
+                  {project.highlights.map((h, i) => {
+                    const isFeatured = "featuredHighlights" in project && (project.featuredHighlights as number[]).includes(i);
+                    return (
+                      <li key={i} className="flex gap-3 items-start">
+                        <span className={`${isFeatured ? "text-[#00D4FF] drop-shadow-[0_0_5px_rgba(0,212,255,0.8)]" : "text-[#6C63FF]"} mt-0.5 flex-shrink-0 text-sm`}>–</span>
+                        <span className={`${isFeatured ? "text-white font-semibold drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" : "text-white/70"} text-sm leading-relaxed`}>{h}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
 
